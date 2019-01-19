@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+  <title>Display Data</title>
+</head>
+<body>
+  <form action="/processrequest/" method="post">
+    {% csrf_token %}
+    <select name="Sex">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <select name="Race">
+      <option value="Amer-Indian-Eskimo">Amer Indian Eskimo</option>
+      <option value="Asian-Pac-Islander">Asian Pac Islander</option>
+      <option value="Black">Black</option>
+      <option value="Other">Other</option>
+      <option value="White">White</option>
+    </select>
+    <select name="Relationship">
+      <option value="Husband">Husband</option>
+      <option value="Not-in-family">Not in family</option>
+      <option value="Other-relative">Other relative</option>
+      <option value="Own-child">Own child</option>
+      <option value="Unmarried">Unmarried</option>
+      <option value="Wife">Wife</option>
+    </select>
+    <input type="submit" value="Submit"/>
+    <br><br><br>
+  </form>
+  <table style="width:100%">
+    <tr>
+      <th>Age</th>
+      <th>Work Class</th>
+      <th>fnlwgt</th>
+      <th>Education</th>
+      <th>education-num</th>
+      <th>Marital Status</th>
+      <th>Occupation</th>
+      <th>Relationship</th>
+      <th>Race</th>
+      <th>Sex</th>
+      <th>Capital Gain</th>
+      <th>capital Loss</th>
+      <th>Hours per week</th>
+      <th>Native Country</th>
+      <th>Income</th>
+    </tr>
+    {% for ar in data %}
+    <tr>
+      {% for i in ar %}
+      <td>{{i}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</body>
